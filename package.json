@@ -1,0 +1,12 @@
+{
+  "name": "videolink",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "workaround for finding direct download links to web videos",
+  "main": "server.js",
+  "author": "sugoidogo",
+  "license": "AGPL-3.0-or-later",
+  "dependencies": {
+    "puppeteer": "^24.3.0"
+  }
+}
