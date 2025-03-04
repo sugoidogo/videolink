@@ -50,8 +50,6 @@ const server=http.createServer(async function (request, response) {
             const video = await page.waitForSelector('video').then(v => v, errorHandler)
             const handle = await video.getProperty('src')
             videoURL = handle.remoteObject().value
-            page.close()
-            page = null
             const token=JSON.parse(new URL(videoURL).searchParams.get('token'))
             ttl=token.expires-Math.floor(Date.now()/1000)
             cache[url] = {videoURL,expires:token.expires}
@@ -72,7 +70,7 @@ const server=http.createServer(async function (request, response) {
         }
     } finally {
         if (page) {
-            page.close()
+            setTimeout(()=>page.close(),Math.random()*1000*60)
         }
         console.log('request complete')
     }
