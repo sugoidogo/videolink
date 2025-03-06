@@ -20,7 +20,7 @@ console.debug('launching puppeteer')
 const browser = await puppeteer.launch({ timeout: 60000,  })
 
 console.debug('starting webserver')
-const server=http.createServer(async function (request, response) {
+const server=http.createServer({keepAlive:true,keepAliveTimeout:45000},async function requestListener(request, response, fork=true) {
     let page = null
     function errorHandler(reason) {
         response.writeHead(400, reason.toString())
