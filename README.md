@@ -1,25 +1,6 @@
 # VideoLink
 Find a video's direct download link from its webpage using Puppeteer
 
-# Requirements
-VideoLink uses [puppeteer](https://pptr.dev/),
-which you can see [the requirements for here](https://pptr.dev/guides/system-requirements).
-
-# Usage
-Download, install, and start the server:
-```bash
-git clone https://github.com/sugoidogo/videolink.git && cd videolink
-npm install
-npm start
-```
-VideoLink listens on port `10101`.
-I'd recommend putting it behind an HTTPS proxy for security.
-Making a request is simple:
-```js
-async function getVideoURL(page_url){
-  const url=new URL('http://localhost:10101')
-  url.searchParams.append('url',page_url)
-  const response=await fetch(url)
-  return response.text()
-}
-```
+# Depreciation Notice
+This software was developed to allow clip players for twitch.tv to continue functioning, but API updates have made this no longer neccessary.
+If you're here looking for a solution for clip mp4 urls, you can use the [twitch clips consent api](https://github.com/sugoidogo/twitch-clips-consent-api)
